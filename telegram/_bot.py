@@ -937,6 +937,7 @@ class Bot(TelegramObject, AsyncContextManager["Bot"]):
         from_chat_id: Union[str, int],
         message_id: int,
         disable_notification: ODVInput[bool] = DEFAULT_NONE,
+        drop_author: ODVInput[bool] = DEFAULT_NONE,
         protect_content: ODVInput[bool] = DEFAULT_NONE,
         message_thread_id: Optional[int] = None,
         *,
@@ -964,6 +965,7 @@ class Bot(TelegramObject, AsyncContextManager["Bot"]):
             message_id (:obj:`int`): Message identifier in the chat specified in
                 :paramref:`from_chat_id`.
             disable_notification (:obj:`bool`, optional): |disable_notification|
+            drop_author (:obj:`bool`, optional): |disable_notification|
             protect_content (:obj:`bool`, optional): |protect_content|
 
                 .. versionadded:: 13.10
@@ -981,6 +983,7 @@ class Bot(TelegramObject, AsyncContextManager["Bot"]):
             "chat_id": chat_id,
             "from_chat_id": from_chat_id,
             "message_id": message_id,
+            "drop_author": drop_author,
         }
 
         return await self._send_message(
