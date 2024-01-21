@@ -573,6 +573,8 @@ class Bot(TelegramObject):
         if drop_author:
             data['drop_author'] = drop_author
 
+        print(data)
+
         return self._message(  # type: ignore[return-value]
             'forwardMessage',
             data,
