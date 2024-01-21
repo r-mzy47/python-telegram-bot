@@ -534,6 +534,7 @@ class Bot(TelegramObject):
         chat_id: Union[int, str],
         from_chat_id: Union[str, int],
         message_id: int,
+        drop_author: DVInput[bool] = DEFAULT_NONE,
         disable_notification: DVInput[bool] = DEFAULT_NONE,
         timeout: ODVInput[float] = DEFAULT_NONE,
         api_kwargs: JSONDict = None,
@@ -569,6 +570,8 @@ class Bot(TelegramObject):
             data['from_chat_id'] = from_chat_id
         if message_id:
             data['message_id'] = message_id
+        if drop_author:
+            data['drop_author'] = drop_author
 
         return self._message(  # type: ignore[return-value]
             'forwardMessage',
